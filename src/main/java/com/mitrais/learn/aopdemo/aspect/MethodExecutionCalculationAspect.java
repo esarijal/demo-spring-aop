@@ -17,7 +17,7 @@ public class MethodExecutionCalculationAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Around(value = "com.mitrais.learn.aopdemo.aspect.config.CommonJoinPointConfig" +
-            ".businessLayerExecution()")// <---
+            ".trackTimeAnnotation()")// <---
     // POINTCUT)
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         // startTime = x

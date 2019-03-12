@@ -19,4 +19,7 @@ public class CommonJoinPointConfig {
 
     @Pointcut("within(com.mitrais.learn.aopdemo.business..*)")
     public void businessLayerExecutionWithWithin(){}
+
+    @Pointcut("@annotation(com.mitrais.learn.aopdemo.aspect.annotation.TrackTime)")
+    public void trackTimeAnnotation(){}
 }
