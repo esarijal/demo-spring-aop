@@ -21,7 +21,9 @@ public class AfterAopAspect {
     // Weaving(The process ) and Weaver (The framework)
 
     @AfterReturning(
-            value = "execution(* com.mitrais.learn.aopdemo.business.*.*(..))",// <--- POINTCUT
+            value = "com.mitrais.learn.aopdemo.aspect.config.CommonJoinPointConfig" +
+                    ".businessLayerExecution()",// <---
+            // POINTCUT
             returning = "result"
     )
     public void afterReturning(JoinPoint joinPoint, Object result){
@@ -30,7 +32,9 @@ public class AfterAopAspect {
     }
 
     @AfterThrowing(
-            value = "execution(* com.mitrais.learn.aopdemo.business.*.*(..))",// <--- POINTCUT
+            value = "com.mitrais.learn.aopdemo.aspect.config.CommonJoinPointConfig" +
+                    ".businessLayerExecution()",// <---
+            // POINTCUT
             throwing = "exception"
     )
     public void afterThrowing(JoinPoint joinPoint, Object exception){
@@ -38,7 +42,9 @@ public class AfterAopAspect {
         logger.info("{} throw exception {}", joinPoint, exception);
     }
 
-    @After(value = "execution(* com.mitrais.learn.aopdemo.business.*.*(..))")// <--- POINTCUT)
+    @After(value = "com.mitrais.learn.aopdemo.aspect.config.CommonJoinPointConfig" +
+            ".businessLayerExecution()")// <---
+    // POINTCUT)
     public void after(JoinPoint joinPoint){
         // What to do? All below logic is ADVICE
         logger.info("completed execution of {}", joinPoint);

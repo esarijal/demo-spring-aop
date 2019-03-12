@@ -16,7 +16,9 @@ import java.time.LocalDateTime;
 public class MethodExecutionCalculationAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Around(value = "execution(* com.mitrais.learn.aopdemo.business.*.*(..))")// <--- POINTCUT)
+    @Around(value = "com.mitrais.learn.aopdemo.aspect.config.CommonJoinPointConfig" +
+            ".businessLayerExecution()")// <---
+    // POINTCUT)
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         // startTime = x
         // allowed execution

@@ -17,7 +17,8 @@ public class BeforeAspect {
     // What kind of method calls I would intercept
     //execution(* PACKAGE.*.*(..))
 
-    @Before("execution(* com.mitrais.learn.aopdemo.business.*.*(..))")
+    @Before("com.mitrais.learn.aopdemo.aspect.config.CommonJoinPointConfig" +
+            ".businessLayerExecution()")
     public void before(JoinPoint joinPoint){
         // What to do?
         logger.info("Intercepted Method Calls - {} ", joinPoint);
