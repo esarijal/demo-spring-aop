@@ -15,11 +15,15 @@ public class UserAccessAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // What kind of method calls I would intercept
-    //execution(* PACKAGE.*.*(..))
+    //execution(* PACKAGE.*.*(..)) <- POINTCUT
 
-    @Before("execution(* com.mitrais.learn.aopdemo.business.*.*(..))")
+    // Combination of POINTCUT + ADVICE = ASPECT
+    // JoinPoint -> spesific execution instance (usually methods)
+    // Weaving(The process ) and Weaver (The framework)
+
+    @Before("execution(* com.mitrais.learn.aopdemo.business.*.*(..))") // <--- POINTCUT
     public void before(JoinPoint joinPoint){
-        // What to do?
+        // What to do? All below logic is ADVICE
         logger.info("Check for user access  ");
         logger.info("Allowed execution for {} ", joinPoint);
     }
